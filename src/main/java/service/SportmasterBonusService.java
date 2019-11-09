@@ -4,15 +4,20 @@ public class SportmasterBonusService {
     public int bonusCalculate(int sumPricePurchase, int purchasePrice) {
         int sumBonus = 0;
         int minPurchasePrice = 1000;
+        int blueCardLimit = 15_000;
+        int silverCardLimit = 150_000;
+        int blueCardBonus = 50;
+        int silverCardBonus = 70;
+        int goldCardBonus = 100;
 
-        if (sumPricePurchase > 0 && sumPricePurchase <= 15_000) {
-            sumBonus = (purchasePrice / minPurchasePrice) * 50;
+        if (sumPricePurchase > 0 && sumPricePurchase <= blueCardLimit) {
+            sumBonus = (purchasePrice / minPurchasePrice) * blueCardBonus;
         }
-        if (sumPricePurchase > 15_000 && sumPricePurchase <= 150_000) {
-            sumBonus = (purchasePrice / minPurchasePrice) * 70;
+        if (sumPricePurchase > blueCardLimit && sumPricePurchase <= silverCardLimit) {
+            sumBonus = (purchasePrice / minPurchasePrice) * silverCardBonus;
         }
-        if (sumPricePurchase > 150_000) {
-            sumBonus = (purchasePrice / minPurchasePrice) * 100;
+        if (sumPricePurchase > silverCardLimit) {
+            sumBonus = (purchasePrice / minPurchasePrice) * goldCardBonus;
         }
 
         return sumBonus;
