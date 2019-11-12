@@ -12,12 +12,15 @@ public class SportmasterBonusService {
 
         if (sumPricePurchase > 0 && sumPricePurchase <= blueCardLimit) {
             sumBonus = (purchasePrice / minPurchasePrice) * blueCardBonus;
+            return sumBonus;
         }
         if (sumPricePurchase > blueCardLimit && sumPricePurchase <= silverCardLimit) {
             sumBonus = (purchasePrice / minPurchasePrice) * silverCardBonus;
+            return sumBonus;
         }
         if (sumPricePurchase > silverCardLimit) {
             sumBonus = (purchasePrice / minPurchasePrice) * goldCardBonus;
+            return sumBonus;
         }
 
         return sumBonus;
