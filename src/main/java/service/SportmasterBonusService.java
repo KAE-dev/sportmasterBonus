@@ -10,16 +10,19 @@ public class SportmasterBonusService {
         int silverCardBonus = 70;
         int goldCardBonus = 100;
 
+
+        int bonusCoefficient = purchasePrice / minPurchasePrice;
+
         if (sumPricePurchase > 0 && sumPricePurchase <= blueCardLimit) {
-            sumBonus = (purchasePrice / minPurchasePrice) * blueCardBonus;
+            sumBonus = bonusCoefficient * blueCardBonus;
             return sumBonus;
         }
         if (sumPricePurchase > blueCardLimit && sumPricePurchase <= silverCardLimit) {
-            sumBonus = (purchasePrice / minPurchasePrice) * silverCardBonus;
+            sumBonus = bonusCoefficient * silverCardBonus;
             return sumBonus;
         }
         if (sumPricePurchase > silverCardLimit) {
-            sumBonus = (purchasePrice / minPurchasePrice) * goldCardBonus;
+            sumBonus = bonusCoefficient * goldCardBonus;
             return sumBonus;
         }
 
